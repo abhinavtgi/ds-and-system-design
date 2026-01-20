@@ -28,4 +28,64 @@ public class NumberOfProvinces {
         }
         return totalComponents;
     }
+// BFS approach
+//    public int findCircleNum(int[][] isConnected) {
+//        int n = isConnected.length;
+//        boolean[] visited = new boolean[n];
+//        int numberOfProvince = 0;
+//
+//        Queue<Integer> q1 = new LinkedList<>();
+//
+//        for(int k=0;k<n;k++) {
+//            if(!visited[k]) {
+//                q1.add(k);
+//                visited[k]=true;
+//                numberOfProvince++;
+//            }
+//
+//            while(!q1.isEmpty()) {
+//                int i = q1.poll();
+//
+//                for(int j=0;j<isConnected.length;j++) {
+//                    if(isConnected[i][j]==1 && !visited[j]) {
+//                        q1.add(j);
+//                        visited[j]=true;
+//                    }
+//                }
+//            }
+//
+//        }
+//
+//        return numberOfProvince;
+//    }
+//
+// DFS approach
+//    void markProvince(int i, int[][] isConnected, boolean[] visited) {
+//        if (visited[i]) {
+//            return;
+//        }
+//
+//        visited[i] = true;
+//
+//        for (int j=0;j<isConnected.length;j++) {
+//            if (isConnected[i][j] == 1) {
+//                markProvince(j, isConnected, visited);
+//            }
+//        }
+//    }
+//
+//    public int findCircleNum(int[][] isConnected) {
+//        int n = isConnected.length;
+//        boolean[] visited = new boolean[n];
+//        int numberOfProvince = 0;
+//
+//        for (int i = 0; i < n; i++) {
+//            if (!visited[i]) {
+//                markProvince(i, isConnected, visited);
+//                numberOfProvince++;
+//            }
+//        }
+//
+//        return numberOfProvince;
+//    }
 }
