@@ -47,4 +47,56 @@ public class DirectedGraphCycle {
         return nodesCompleted!=V;
     }
 
+    // DFS approach
+//    boolean isCycleInGraph(int i, List<List<Integer>> graph, boolean[] visited, boolean[] pathVisited) {
+//        visited[i]=true;
+//        pathVisited[i]=true;
+//
+//        for(int j:graph.get(i)) {
+//            if(!visited[j]) {
+//                boolean isCycle = isCycleInGraph(j, graph, visited, pathVisited);
+//                if(isCycle) {
+//                    return true;
+//                }
+//            }
+//            if(visited[j] && pathVisited[j]) {
+//                return true;
+//            }
+//        }
+//        pathVisited[i]=false;
+//        return false;
+//    }
+//
+//    public boolean isCyclic(int V, int[][] edges) {
+//        // code here
+//        int[] indegree = new int[V];
+//
+//        List<List<Integer>> graph = new ArrayList<>();
+//
+//        for(int i=0;i<V;i++) {
+//            graph.add(new ArrayList<>());
+//        }
+//
+//        for(int[] i:edges) {
+//            graph.get(i[0]).add(i[1]);
+//            indegree[i[1]]++;
+//        }
+//
+//        boolean[] visited = new boolean[V];
+//        boolean[] pathVisited = new boolean[V];
+//
+//
+//        for(int i=0;i<V;i++) {
+//            if(!visited[i]) {
+//                boolean isCycle = isCycleInGraph(i, graph, visited, pathVisited);
+//                if(isCycle) {
+//                    return true;
+//                }
+//            }
+//        }
+//
+//
+//        return false;
+//    }
+
 }
