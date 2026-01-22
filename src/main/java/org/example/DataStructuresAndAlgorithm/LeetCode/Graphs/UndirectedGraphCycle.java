@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+//https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1
 public class UndirectedGraphCycle {
     public boolean isCycle(int V, int[][] edges) {
         // Code here
