@@ -37,7 +37,7 @@ public class FindTheCityWithTheSmallestNumberOfNeighbors {
         }
 
         int minReachableCities=n;
-        int answerCity=-1;
+        int minReachableCityNumber=-1;
 
         //check how many cities are reachable from each node
         for(int i=0;i<n;i++) {
@@ -51,11 +51,11 @@ public class FindTheCityWithTheSmallestNumberOfNeighbors {
             //update answer and minReachableCities
             if(reachableCities<=minReachableCities) {
                 minReachableCities=reachableCities;
-                answerCity=i;
+                minReachableCityNumber=i;
             }
         }
 
-        return answerCity;
+        return minReachableCityNumber;
 
     }
 }
