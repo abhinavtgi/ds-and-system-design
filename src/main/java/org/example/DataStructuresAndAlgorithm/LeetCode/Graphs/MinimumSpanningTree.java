@@ -44,3 +44,72 @@ public class MinimumSpanningTree {
     }
 
 }
+
+//Using Kruskal’s Algorithm
+
+//class DisJointSet {
+//    int[] size;
+//    int[] parent;
+//
+//    DisJointSet(int n) {
+//        size = new int[n];
+//        parent = new int[n];
+//        for(int i=0;i<n;i++) {
+//            size[i]=1;
+//            parent[i]=i;
+//        }
+//    }
+//
+//    int findUltimateParent(int i) {
+//        if(i==parent[i]) {
+//            return i;
+//        }
+//
+//        return parent[i]=findUltimateParent(parent[i]);
+//    }
+//
+//    void unionBySize(int i, int j) {
+//        int parent1 = findUltimateParent(i);
+//        int parent2 = findUltimateParent(j);
+//
+//        if(parent1==parent2) {
+//            return;
+//        }
+//
+//        if(size[parent1]<size[parent2]) {
+//            parent[parent1]=parent2;
+//            size[parent1]+=size[parent2];
+//        }
+//        else {
+//            parent[parent2]=parent1;
+//            size[parent2]+=size[parent1];
+//        }
+//    }
+//}
+//
+//class Solution {
+//    public int spanningTree(int V, int[][] edges) {
+//        // code here
+//
+//        Arrays.sort(edges, (a,b)->Integer.compare(a[2],b[2]));
+//
+//        DisJointSet ds = new DisJointSet(V);
+//
+//        int mstSum=0;
+//
+//        for(int[] i:edges) {
+//            int source=i[0];
+//            int target=i[1];
+//
+//
+//            if(ds.findUltimateParent(source)!=ds.findUltimateParent(target)) {
+//                ds.unionBySize(source,target);
+//                mstSum+=i[2];
+//            }
+//        }
+//
+//        return mstSum;
+//
+//
+//    }
+//}

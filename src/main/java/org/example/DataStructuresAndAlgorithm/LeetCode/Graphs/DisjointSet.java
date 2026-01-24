@@ -28,6 +28,10 @@ public class DisjointSet {
 
         //assigning the parent[node] as the ultimate parent so that if next time it is asked
         //we dont need to traverse full path again, this is called path compression
+        //we could have also called return findUltimateParent(parent[node]); that would also be fine but then
+        //path compression would not happen and without path compression we don't get amortized O(4) complexity
+        // Complexity would be O(log n) without path compression but with path compression it is almost constant time O(4)
+        // can read about ackerman function, its a extremely fast growing function so its inverse is very slow growing
         return  parent[node] = findUltimateParent(parent[node]);
     }
 
