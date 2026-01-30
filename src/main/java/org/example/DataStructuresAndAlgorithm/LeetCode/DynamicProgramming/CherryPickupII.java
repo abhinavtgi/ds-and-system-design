@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 //https://leetcode.com/problems/cherry-pickup-ii/description/
 public class CherryPickupII {
+    int[][] directions = {{-1,0}, {-1,1}, {-1,-1}, {0,0},{0,-1},{0,1},{1,0},{1,-1},{1,1}};
     int maxCherryPicked(int i, int j1, int j2, int[][] grid, int m, int n, int[][][] dp) {
         if(i>=m || j1<0 || j1>=n || j2<0 || j2>=n) {
             return 0;
@@ -14,23 +15,16 @@ public class CherryPickupII {
         }
 
         int cherries = j1 != j2 ?  grid[i][j1]+grid[i][j2] : grid[i][j1];
+        int maxCherriesPicked=0;
+        for(int[] dir:directions) {
+            int newI = i+1;
+            int newJ1= j1+dir[0];
+            int newJ2 = j2+dir[1];
+            int totalCherries = cherries + maxCherryPicked(newI, newJ1, newJ2,grid,m,n,dp);
+            maxCherriesPicked = Math.max(maxCherriesPicked, totalCherries);
+        }
 
-        int op1 = maxCherryPicked(i+1, j1-1, j2-1,grid,m,n,dp);
-        int op2 = maxCherryPicked(i+1, j1+1, j2-1,grid,m,n,dp);
-        int op3 = maxCherryPicked(i+1, j1, j2-1,grid,m,n,dp);
-
-        int op4 = maxCherryPicked(i+1, j1-1, j2+1,grid,m,n,dp);
-        int op5 = maxCherryPicked(i+1, j1+1, j2+1,grid,m,n,dp);
-        int op6 = maxCherryPicked(i+1, j1, j2+1,grid,m,n,dp);
-
-        int op7 = maxCherryPicked(i+1, j1-1, j2,grid,m,n,dp);
-        int op8 = maxCherryPicked(i+1, j1+1, j2,grid,m,n,dp);
-        int op9 = maxCherryPicked(i+1, j1, j2,grid,m,n,dp);
-
-        int temp1 = Math.max(Math.max(Math.max(op1,op2),Math.max(op3,op4)),op5);
-        int temp2 = Math.max(Math.max(op6,op7),Math.max(op8,op9));
-
-        return dp[i][j1][j2] = cherries + Math.max(temp1,temp2);
+        return dp[i][j1][j2] = maxCherriesPicked;
 
     }
     public int cherryPickup(int[][] grid) {
